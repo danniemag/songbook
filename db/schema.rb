@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_06_07_173613) do
   end
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.string "country"
     t.string "state"
     t.string "city"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_06_07_173613) do
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "group_id"
     t.integer "song_id"
-    t.date "execution_date"
+    t.date "execution_date", default: "2018-06-07", null: false
     t.boolean "played"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 2018_06_07_173613) do
   end
 
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.string "singer"
-    t.string "key"
+    t.string "key", limit: 2
     t.string "source"
     t.string "video_url"
     t.text "lyrics"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2018_06_07_173613) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
