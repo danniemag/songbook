@@ -18,6 +18,7 @@
     <%= stylesheet_link_tag    'theme', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'themify-icons', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'typicons', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'login', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'pace', 'data-turbolinks-track': 'reload' %>
@@ -38,24 +39,40 @@
     <%= javascript_include_tag 'jquery.flot.pie.min', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="pace-done" data-whatinput="mouse">
-    <%= render 'partials/preloader' %>
-    <div class="off-canvas-wrapper over-flow-hidden">
-      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
-        <div class="inner-wrap">
-          <%= render 'partials/sidebar' %>
-          <div class="wrap-fluid" id="paper-bg" style="width: auto; margin-left: 260px;">
-            <%= render 'partials/topnav' %>
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            <%= yield %>
-            <%= render 'partials/footer' %>
+  <% if current_user.nil? %>
+
+    <body>
+      <%= render 'partials/preloader' %>
+      <div class="inner-wrap">
+        <div class="wrap-fluid">
+          <%= yield %>
+        </div>
+      </div>
+    </body>
+
+  <% else %>
+
+    <body class="pace-done" data-whatinput="mouse">
+      <%= render 'partials/preloader' %>
+      <div class="off-canvas-wrapper over-flow-hidden">
+        <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
+          <div class="inner-wrap">
+            <%= render 'partials/sidebar' %>
+            <div class="wrap-fluid" id="paper-bg" style="width: auto; margin-left: 260px;">
+              <%= render 'partials/topnav' %>
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+              <%= yield %>
+              <%= render 'partials/footer' %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <script>
-        $(document).foundation();
-    </script>
-  </body>
+      <script>
+          $(document).foundation();
+      </script>
+    </body>
+
+  <% end %>
+
 </html>

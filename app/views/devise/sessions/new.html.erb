@@ -1,0 +1,61 @@
+<!-- Container Begin -->
+<div class="large-5 small-centered columns">
+  <div class="profile"> <%= image_tag 'yeti.svg'%> <h3>Songbook</h3></div>
+  <div class="box bg-white">
+    <!-- Profile -->
+    <!-- End of Profile -->
+    <!-- /.box-header -->
+    <div class="box-body " style="display: block;">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="row">
+            <div class="edumix-signup-panel">
+              <p class="welcome">Log in with you email account</p>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="row column log-in-form">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'somebody@example.com' %>
+                  <%= f.label :password %>
+                  <%= f.password_field :password, autocomplete: 'off', placeholder: 'Senha' %>
+                  <input id="show-password" type="checkbox">
+                  <label for="show-password">Show password</label>
+                  <p><%= f.submit 'Log in', class: 'button expanded' %></p>
+                  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                    <p class="text-center">
+                      <%= link_to 'Forgot your password?', new_password_path(resource_name) %><br/>
+                    </p>
+                  <% end -%>
+                </div>
+              <% end %>
+              <br>
+              <h2><span>OR</span></h2>
+              <p class="welcome text-center">Sign in with</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-5 columns no-pad">
+              <div class="edumix-footer-panel">
+                <a href="#">
+                  <span class="bg-red"><i class="fab fa-google"></i>&nbsp;&nbsp;sign in with Google</span>
+                </a>
+              </div>
+            </div>
+            <div class="large-2 columns"></div>
+            <div class="large-5 columns no-pad">
+              <div class="edumix-footer-panel">
+                <a href="#">
+                  <span class="bg-dark-blue"><i class="fab fa-facebook-f"></i>&nbsp;&nbsp;sign in with facebook</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end .timeline -->
+  </div>
+  <!-- box -->
+</div>
+
+
+<%#= render "devise/shared/links" %>
