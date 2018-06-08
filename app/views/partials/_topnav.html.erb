@@ -7,8 +7,11 @@
   <div class="top-bar-left">
     <ul class="dropdown menu menu-profile bg-white">
       <!-- PROFILE-->
-      <li class="bg-white"> <img alt="profile" class="admin-pic img-circle palette-Grey-900 bg" src="http://api.randomuser.me/portraits/thumb/women/21.jpg"> </li>
-      <li class="bg-white"> <a class="bg-white text-gray" data-toggle="profile-dropdown"> Olá, Dannie Magalhães </a>
+      <li class="bg-white">
+        <img alt="profile" class="admin-pic img-circle palette-Grey-900 bg" src="<%= current_user.picture %>">
+      </li>
+      <li class="bg-white">
+        <a class="bg-white text-gray" data-toggle="profile-dropdown">Olá, <%= current_user.name %></a>
         <div class="dropdown-pane dropdown-pane-nest profile-nest bottom" id="profile-dropdown" data-dropdown data-auto-focus="true">
           <ul class="menu vertical dropdown profile-dropdown">
             <li><a href="#"><i class="ti-user palette-Indigo-500 bg"></i> Profile<span class="text-aqua fontello-record" ></span></a> </li>
