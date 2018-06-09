@@ -11,6 +11,17 @@
  * It is generally better to create a new file per style scope.
  *
  *
- *= require_tree .
- *= require_self
  */
+  @import "dashboard";
+  @import "dripicon";
+  @import "foundation";
+  @import "login";
+  @import "Montserrat-Hairline";
+  @import "pace-theme-flash";
+  @import "palette";
+  @import "slicknav";
+  @import "style";
+  @import "theme";
+  @import "themify-icons";
+  @import "typicons";
+

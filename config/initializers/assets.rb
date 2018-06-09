@@ -9,7 +9,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Precompile additional assets.
-# application22.js, application.css, and all non-JS/CSS in the app/assets
+# application22.js, application.scss, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( jquery.js jquery.counterup.min.js )
 Rails.application.config.assets.precompile += %w( dashboard.css dripicon.css foundation.css pace-theme-flash.css

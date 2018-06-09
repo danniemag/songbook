@@ -16,8 +16,13 @@
           <ul class="menu vertical dropdown profile-dropdown">
             <li><a href="#"><i class="ti-user palette-Indigo-500 bg"></i> Profile<span class="text-aqua fontello-record" ></span></a> </li>
             <li><a href="#"><i class="ti-wallet palette-Blue-700 bg"></i> Accounts</a> </li>
-            <li><a href="#"><i class="ti-power-off palette-Light-Blue-900 bg"></i>Log Out</a> </li>
-          </ul> </div>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="ti-power-off palette-Light-Blue-900 bg"></i>Log Out
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </li>
       <!-- end of PROFILE-->
     </ul>
