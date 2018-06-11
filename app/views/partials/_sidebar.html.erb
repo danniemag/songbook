@@ -7,41 +7,44 @@
 
       <!-- Profile -->
       <div class="profile">
-        <%= image_tag 'yeti.svg' %>
+        <%= image_tag 'songbook01.svg' %>
         <h3 style="display: block;">Songbook<small>ADMIN</small></h3>
       </div>
       <!-- End of Profile -->
 
       <!-- Menu sidebar begin-->
       <div class="side-bar">
-        <ul id="menu-showhide" class="topnav slicknav">
+        <ul class="topnav slicknav">
           <li>
-            <a id="menu-select" class="tooltip-tip" href="index.html" title="Dashboard">
+            <a class="tooltip-tip" href="<%=root_path%>" title="Dashboard"
+              <%= 'id="menu-select"'.html_safe if controller_name=='dashboard'%>>
               <i class="palette-Deep-Purple-700 bg ti-desktop"></i> <span>Dashboard</span>
             </a>
           </li>
           <li>
-            <a class="tooltip-tip" href="#">
-              <i class="palette-Indigo-700 bg ti-music"></i> <span>Songs</span>
+            <a class="tooltip-tip" href="<%=groups_path%>" title="Groups"
+              <%= 'id="menu-select"'.html_safe if controller_name=='groups'%>>
+              <i class="palette-Cyan-700 bg ti-layout-grid2"></i> <span>Grupos</span>
+            </a>
+          </li>
+          <li>
+            <a class="tooltip-tip" href="<%=songs_path%>" title="Songs"
+               <%= 'id="menu-select"'.html_safe if controller_name=='songs'%>>
+               <i class="palette-Blue-700 bg ti-music"></i> <span>Songs</span>
             </a>
           </li>
           <li>
             <a class="tooltip-tip" href="#" title="Tags">
-              <i class="palette-Cyan-700 bg ti-tag"></i> <span>Tags</span>
-            </a>
-          </li>
-          <li>
-            <a class="tooltip-tip" href="#" title="Tags">
-              <i class="intial palette-Blue-700 bg ti-email"></i> <span>Tags</span>
+              <i class="intial palette-Blue-900 bg ti-tag"></i> <span>Tags</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="intial palette-Blue-900 bg ti-write"></i> <span>Page</span>
+              <i class="intial palette-Teal-600 bg ti-write"></i> <span>Page</span>
             </a>
           </li>
           <li>
-            <a class="tooltip-tip" href="#" title="UI"> <i class="intial palette-Teal-600 bg ti-vector"></i> <span>UI&nbsp;
+            <a class="tooltip-tip" href="#" title="UI"> <i class="intial palette-Green-700 bg ti-vector"></i> <span>UI&nbsp;
                                     <small class="side-menu-noft">new</small></span> </a>
             <ul>
               <li> <a href="element.html" title="Element">Element</a> </li>
@@ -59,7 +62,7 @@
             </ul>
           </li>
           <li>
-            <a href="#"> <i class="intial palette-Green-700 bg ti-layers-alt"></i>
+            <a href="#"> <i class="intial palette-Lime-700 bg ti-layers-alt"></i>
               <span>Form&nbsp;  <small class="side-menu-noft">new</small></span>
             </a>
             <ul>
@@ -70,14 +73,14 @@
             </ul>
           </li>
           <li>
-            <a href="#"> <i class="intial palette-Lime-700 bg ti-harddrives"></i> <span>Tables</span> </a>
+            <a href="#"> <i class="intial palette-Orange-700 bg ti-harddrives"></i> <span>Tables</span> </a>
             <ul>
               <li> <a href="table-static.html" title="Table Static">Table Static</a> </li>
               <li> <a href="table-dynamic.html" title="Table Dynamic">Table Dynamic</a> </li>
             </ul>
           </li>
           <li>
-            <a class=" tooltip-tip" href="icon.html" title="Icons"> <i class="intial palette-Orange-700 bg ti-zip"></i> <span>Icons</span> </a>
+            <a class=" tooltip-tip" href="icon.html" title="Icons"> <i class="intial palette-Pink-700 bg ti-zip"></i> <span>Icons</span> </a>
           </li>
           <li>
             <a class="tooltip-tip" href="#" title="Extra"> <i class="palette-Pink-700 bg ti-gift"></i> <span>Extra</span> </a>

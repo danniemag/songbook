@@ -1,0 +1,8 @@
+<% if @groups.blank? %>
+  <div class="large-12 columns">
+    <div class="alert callout">
+      <h6><%= t('groups.no_groups_title')%></h6>
+      <p><%= t('groups.no_groups_body')%></p>
+    </div>
+  </div>
+<%end%>

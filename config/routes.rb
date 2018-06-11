@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :dashboard, only: :home
+  resources :groups
+  resources :songs
 
   authenticated :user do
     root to: 'dashboard#home', as: :authenticated_root

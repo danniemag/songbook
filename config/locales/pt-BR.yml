@@ -1,0 +1,10 @@
+pt-BR:
+  hello: 'Olá Mundo'
+  titles:
+    dashboard: 'Dashboard'
+    groups: 'Grupos'
+    songs: 'Músicas'
+    tags: 'Tags'
+  groups:
+    no_groups_title: 'Não há grupos'
+    no_groups_body: 'Você não está inscrito em quaisquer grupos no momento. Solicite uma inscrição agora!'
