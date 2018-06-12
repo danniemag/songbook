@@ -15,6 +15,9 @@
   <!-- pace loader -->
   <%= javascript_include_tag 'pace', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'modernizr', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'jquery', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'waypoints.min', 'data-turbolinks-track': 'reload' %> <!--Círculo 55% antes do nome do grupo, dash-->
+  <%= javascript_include_tag 'foundation', 'data-turbolinks-track': 'reload' %> <!--Layout geral navbar-->
 
   <% if current_user.nil? %>
     <body>
@@ -42,12 +45,9 @@
       </div>
 
     <!-- main javascript library -->
-<script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/jquery.js"></script>
-<script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/waypoints.min.js"></script>
-<script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/preloader-script.js"></script>
+<!--<script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/preloader-script.js"></script>-->
 <!-- foundation javascript -->
 <!--<script src="http://ndesaintheme.com/fondamix/js/what-input.js"></script>-->
-<script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/foundation.js"></script>
 <!-- main edumix javascript -->
 <script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/slimscroll/jquery.slimscroll.js"></script>
 <script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/slicknav/jquery.slicknav.js"></script>
