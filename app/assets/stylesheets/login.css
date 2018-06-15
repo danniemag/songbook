@@ -81,6 +81,11 @@ Author: Themesmile
     display: table;
 }
 
+.profile image {
+    fill: white;
+    height: 50%;
+}
+
 .profile h3 {
     color: white;
     opacity: 1;

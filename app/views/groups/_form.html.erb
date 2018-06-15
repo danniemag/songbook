@@ -1,118 +1,36 @@
-<!-- Begin page content -->
-<div class="row">
-  <div class="large-12 columns">
-    <!-- Begin page content -->
+<%= form_for @group do |f| %>
+  <div class="row">
+    <div class="large-12 columns">
 
-    <h4>Criar Novo Grupo</h4>
-    <p>We set out to create an easy, powerful and versatile form layout system. A combination of form styles and the Foundation grid means you can do almost anything.</p>
-    <!--Form ITEM-->
-    <div class="box no-shadow ">
-      <div class="box-header bg-transparent">
-        <!-- tools box -->
-        <div class="pull-right box-tools"> <span class="box-btn" data-widget="collapse"><i class="icon-minus"></i>
-                                    </span> <span class="box-btn" data-widget="remove"><i class="icon-cross"></i>
-                                    </span> </div>
-        <h3 class="box-title"><i class="ti-view-list palette-Indigo-700 text"></i>
-          <span>Form Basic</span>
-        </h3> </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <%= form_for :group do |f| %>
-          <!-- row -->
+      <!--Form ITEM-->
+      <div class="box no-shadow ">
+
+        <div class="box-body">
           <div class="row">
+            <div class="large-12 columns">
+              <h5><span><i class="ti-view-list palette-Indigo-700 text"></i></span> Criar Novo Grupo</h5>
+            </div>
             <div class="large-4 columns">
               <p>Insira nomes fáceis de serem procurados. Lembre-se: os membros do seu grupo podem encontrá-lo melhor se
                 palavras chave forem utilizadas. <em>Exemplo: Coral Jovem da Igreja de Springfield</em></p>
             </div>
-            <div class="large-8 columns">
-              <form>
-                <div class="row">
-                  <div class="medium-12 columns">
-                    <label>Nome do grupo
-                      <%= f.text_field :name, placeholder:'Insira o nome do grupo...'%>
-                    </label>
+              <div class="large-8 columns">
+                <form>
+                  <div class="row">
+                    <div class="medium-12 columns">
+                      <label>Nome do grupo
+                        <%= f.text_field :name, placeholder:'Insira o nome do grupo...'%>
+                      </label>
+                    </div>
                   </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <hr>
-          <!-- end row -->
-          <!-- row -->
-          <div class="row">
-            <div class="large-4 columns">
-              <p><strong>Select Menu</strong> </p>
-              <p>Use select menus to combine many choices into one menu.</p>
-            </div>
-            <div class="large-8 columns">
-              <label>Select Menu
-                <select>
-                  <option value="husker">Husker</option>
-                  <option value="starbuck">Starbuck</option>
-                  <option value="hotdog">Hot Dog</option>
-                  <option value="apollo">Apollo</option>
-                </select>
-              </label>
-              <hr>
-              <label>Multiple Select Menu
-                <select multiple>
-                  <option value="showboat">Showboat</option>
-                  <option value="redwing">Redwing</option>
-                  <option value="narcho">Narcho</option>
-                  <option value="hardball">Hardball</option>
-                </select>
-              </label>
-            </div>
-          </div>
-          <hr>
-          <!-- end row -->
-          <!-- row -->
-          <div class="row">
-            <div class="large-4 columns">
-              <p><strong>Checkboxes and Radio Buttons</strong> </p>
-              <p>Use groups of checkboxes when the user may select multiple choices from a list, and use radio buttons when the user must select just one choice.</p>
-            </div>
-            <div class="large-8 columns">
-              <div class="row">
-                <fieldset class="large-6 columns">
-                  <legend>Choose Your Favorite</legend>
-                  <input type="radio" name="pokemon" value="Red" id="pokemonRed" required>
-                  <label for="pokemonRed">Red</label>
-                  <input type="radio" name="pokemon" value="Blue" id="pokemonBlue">
-                  <label for="pokemonBlue">Blue</label>
-                  <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow">
-                  <label for="pokemonYellow">Yellow</label>
-                </fieldset>
-                <fieldset class="large-6 columns">
-                  <legend>Check these out</legend>
-                  <input id="checkbox1" type="checkbox">
-                  <label for="checkbox1">Checkbox 1</label>
-                  <input id="checkbox2" type="checkbox">
-                  <label for="checkbox2">Checkbox 2</label>
-                  <input id="checkbox3" type="checkbox">
-                  <label for="checkbox3">Checkbox 3</label>
-                </fieldset>
+                </form>
               </div>
-              <hr>
-              <fieldset class="fieldset">
-                <legend>Check these out</legend>
-                <input id="checkbox12" type="checkbox">
-                <label for="checkbox12">Checkbox 1</label>
-                <input id="checkbox22" type="checkbox">
-                <label for="checkbox22">Checkbox 2</label>
-                <input id="checkbox32" type="checkbox">
-                <label for="checkbox32">Checkbox 3</label>
-              </fieldset>
-            </div>
+              <%= f.submit class:'button'%>
           </div>
+          <hr>
+        </div>
 
-          <!-- end row -->
-        <%end%>
       </div>
-      <!-- /.box-body -->
-
-      <!--End of Right Side-->
-
     </div>
   </div>
-</div>
+<%end%>

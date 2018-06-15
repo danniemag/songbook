@@ -1,4 +1,14 @@
 pt-BR:
+  activerecord:
+    errors:
+      models:
+        group:
+          attributes:
+            name:
+              blank: 'não pode ficar em branco.'
+    group:
+      create:
+        success: '"%{group_name}" criado com sucesso.'
   hello: 'Olá Mundo'
   titles:
     dashboard: 'Dashboard'

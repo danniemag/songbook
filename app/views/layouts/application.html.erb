@@ -35,8 +35,19 @@
             <%= render 'partials/sidebar' %>
             <div class="wrap-fluid" id="paper-bg" style="width: auto; margin-left: 260px;">
               <%= render 'partials/topnav' %>
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
+              <div class="row" style="padding-top:15px">
+                <div class="large-12 columns">
+                  <% if flash.present? %>
+                    <% flash.each do |key, value| %>
+                      <div class="<%= key %> callout" data-closable>
+                        <h6><%= value %></h6>
+                        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                          <span aria-hidden="true">&times;</span></button>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
               <%= yield %>
               <%= render 'partials/footer' %>
             </div>
@@ -52,7 +63,7 @@
 <script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/slimscroll/jquery.slimscroll.js"></script>
 <script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/slicknav/jquery.slicknav.js"></script>
 <script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/sliding-menu.js"></script>
-<!--<script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/scriptbreaker-multiple-accordion-1.js"></script>-->
+<script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/scriptbreaker-multiple-accordion-1.js"></script>
 <script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/number/jquery.counterup.min.js"></script>
 <script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/circle-progress/jquery.circliful.js"></script>
 <script type="text/javascript" src="http://ndesaintheme.com/fondamix/js/app.js"></script>

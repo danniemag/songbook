@@ -1,4 +1,14 @@
 pt-BR:
+  activerecord:
+    errors:
+      models:
+        group:
+          attributes:
+            name:
+              blank: 'cannot be blank.'
+    group:
+      create:
+        success: '"%{group_name}" successfully created.'
   hello: 'Hello World'
   titles:
     dashboard: 'Dashboard'
