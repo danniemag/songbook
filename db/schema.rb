@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_06_11_163046) do
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "group_id"
     t.integer "song_id"
-    t.date "execution_date", default: "2018-06-07", null: false
+    t.date "execution_date", default: "0001-01-01", null: false
     t.boolean "played"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

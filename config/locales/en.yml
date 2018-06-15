@@ -6,9 +6,6 @@ pt-BR:
           attributes:
             name:
               blank: 'cannot be blank.'
-    group:
-      create:
-        success: '"%{group_name}" successfully created.'
   hello: 'Hello World'
   titles:
     dashboard: 'Dashboard'
@@ -16,5 +13,9 @@ pt-BR:
     songs: 'Songs'
     tags: 'Tags'
   groups:
+    create:
+      success: '"%{group_name}" successfully created.'
+    local: 'Location'
+    member_since: 'Member since'
     no_groups_title: 'No groups!'
     no_groups_body: 'You have no groups to display. Request a sign in now!'

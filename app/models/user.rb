@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+
+  has_many :group_members, class_name: 'GroupMember'
   has_many :groups, through: :group_members
 
   # Include default devise modules. Others available are:

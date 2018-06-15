@@ -6,9 +6,10 @@ pt-BR:
           attributes:
             name:
               blank: 'não pode ficar em branco.'
-    group:
-      create:
-        success: '"%{group_name}" criado com sucesso.'
+  devise:
+    omniauth_callbacks:
+      user:
+        success: 'Conectado com sucesso!'
   hello: 'Olá Mundo'
   titles:
     dashboard: 'Dashboard'
@@ -16,5 +17,9 @@ pt-BR:
     songs: 'Músicas'
     tags: 'Tags'
   groups:
+    create:
+      success: '"%{group_name}" criado com sucesso.'
+    local: 'Local'
+    member_since: 'Membro desde '
     no_groups_title: 'Não há grupos'
     no_groups_body: 'Você não está inscrito em quaisquer grupos no momento. Solicite uma inscrição agora!'

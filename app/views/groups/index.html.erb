@@ -11,4 +11,41 @@
   <div class="large-6 columns">
     <a class="button expanded" href="<%=new_group_path%>">Criar grupo</a>
   </div>
+<%else%>
+  <div class="row large-12 columns">
+    <a class="button expanded" href="<%= new_group_path %>">Criar grupo</a>
+  </div>
+  <div class="row">
+    <% @groups.each do |grp|%>
+      <div class="large-6 columns">
+        <!--facebook-->
+        <div class="box palette-Blue-800 bg">
+          <div class="box-header  palette-Blue-800 bg">
+            <!-- tools box -->
+            <div class="pull-right text-white box-tools">
+              <span class="box-btn "><i class="circle-nest ti-comment-alt"></i></span>
+              <span class="text-white box-btn"><i class="circle-nest ti-user"></i></span>
+              <span class="text-white box-btn"><i class="circle-nest ti-world"></i></span>
+            </div>
+            <h3 class="box-title">
+              <span class="side-menu-noft bg-blue">ADMIN</span>
+            </h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body no-pad" style="display: block;">
+            <div class="events-nest ">
+              <div class="wrap-no-pad text-white">
+                <span><%=grp.group.name%></span>
+                <p><i class="far fa-calendar-alt"></i> <%= t('groups.member_since')%>: <%=grp.created_at.strftime('%d/%m/%Y')%>
+                  <br><i class="fas fa-map-marker-alt"></i> <%= t('groups.local')%>: <%=grp.group.city%> - <%=grp.group.state%> - <%=grp.group.country%>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!--end of facebook-->
+      </div>
+      <% end %>
+  </div>
 <%end%>

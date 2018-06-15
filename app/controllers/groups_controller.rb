@@ -1,8 +1,9 @@
 class GroupsController < ApplicationController
+  # before_action :authenticate_user!
 
   def index
-    @group = Group.all
-    # @group_member = GroupMember.where(user_id:current_user.id)
+    # @group = Group.all
+    @groups = GroupMember.where(user_id:current_user.id)
   end
 
   def new
@@ -12,8 +13,8 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(permitted_params)
     if @group.save
-      # GroupMemberManager.create_group(@group, current_user)
-      flash[:success] =  t('activerecord.group.create.success', group_name: @group.name)
+      GroupMemberManager.create_group(@group, current_user)
+      flash[:success] =  t('groups.create.success', group_name: @group.name)
       redirect_to groups_path
     else
       @group.errors.full_messages.each do |message|
