@@ -15,32 +15,5 @@
 //= require turbolinks
 //= require_tree .
 
-//= require app
-//= require common
-//= require controls
-//= require demo
-//= require foundation
 //= require jquery
-//= require jquery.circliful
-//= require jquery.counterup.min
-//= require jquery.flot.categories.min
-//= require jquery.flot
-//= require jquery.flot.pie.min
-//= require jquery.flot.resize.min
-//= require jquery.slicknav
-//= require jquery.slimscroll
-//= require jquery.velocity.min
-//= require loader
-
-//= require number-pb
-//= require onion
-
-//= require preloader-script
-//= require scriptbreaker-multiple-accordion-1
-//= require skycons
-//= require sliding-menu
-//= require stats
-//= require util
-//= require waypoints.min
-//= require what-input
 

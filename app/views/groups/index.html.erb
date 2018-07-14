@@ -1,4 +1,18 @@
 <% if @groups.blank? %>
+  <div class="content-box mrg20T">
+    <h3 class="content-box-header bg-primary">
+      Toggle button closed
+      <span class="header-buttons-separator">
+                    <a href="#" class="icon-separator toggle-button">
+                        <i class="glyph-icon icon-chevron-down"></i>
+                    </a>
+                </span>
+    </h3>
+    <div class="content-box-wrapper hide">
+      This content boxes has the header with <code>.bg-default</code>.
+    </div>
+  </div>
+
   <div class="large-12 columns">
     <div class="alert callout">
       <h6><%= t('groups.no_groups_title')%></h6>
@@ -11,41 +25,97 @@
   <div class="large-6 columns">
     <a class="button expanded" href="<%=new_group_path%>">Criar grupo</a>
   </div>
+
+
 <%else%>
-  <div class="row large-12 columns">
-    <a class="button expanded" href="<%= new_group_path %>">Criar grupo</a>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel">
+        <div class="panel-body">
+          <h3 class="title-hero">
+            Dashboard buttons
+          </h3>
+
+          <div class="example-box-wrapper">
+
+            <div class="content-box remove-border dashboard-buttons clearfix">
+              <a href="<%=new_group_path%>" class="btn vertical-button hover-green" title="">
+                                <span class="glyph-icon icon-separator-vertical">
+                                    <i class="glyph-icon icon-plus"></i>
+                                </span>
+                <span class="button-content">Novo Grupo</span>
+              </a>
+
+              <a href="#" class="btn vertical-button hover-orange" title="">
+                                <span class="glyph-icon icon-separator-vertical">
+                                    <i class="glyph-icon icon-fire"></i>
+                                </span>
+                <span class="button-content">Tables</span>
+              </a>
+
+              <a href="#" class="btn vertical-button hover-purple" title="">
+                                <span class="glyph-icon icon-separator-vertical">
+                                    <i class="glyph-icon icon-bar-chart-o"></i>
+                                </span>
+                <span class="button-content">Charts</span>
+              </a>
+
+              <a href="#" class="btn vertical-button hover-yellow" title="">
+                                <span class="glyph-icon icon-separator-vertical">
+                                    <i class="glyph-icon icon-laptop"></i>
+                                </span>
+                <span class="button-content">Buttons</span>
+              </a>
+
+              <a href="#" class="btn vertical-button hover-azure" title="">
+                                <span class="glyph-icon icon-separator-vertical">
+                                    <i class="glyph-icon icon-code"></i>
+                                </span>
+                <span class="button-content">Panels</span>
+              </a>
+
+              <a href="#" class="btn vertical-button hover-blue" title="">
+                                <span class="glyph-icon icon-separator-vertical">
+                                    <i class="glyph-icon icon-picture-o"></i>
+                                </span>
+                <span class="button-content">Themes</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+
+
   <div class="row">
     <% @groups.each do |grp|%>
-      <div class="large-6 columns">
-        <!--facebook-->
-        <div class="box palette-Blue-800 bg">
-          <div class="box-header  palette-Blue-800 bg">
-            <!-- tools box -->
-            <div class="pull-right text-white box-tools">
-              <span class="box-btn "><i class="circle-nest ti-comment-alt"></i></span>
-              <span class="text-white box-btn"><i class="circle-nest ti-user"></i></span>
-              <span class="text-white box-btn"><i class="circle-nest ti-world"></i></span>
-            </div>
-            <h3 class="box-title">
-              <span class="side-menu-noft bg-blue">ADMIN</span>
-            </h3>
+      <div class="col-md-3">
+        <div class="tile-box tile-box-alt mrg20B bg-blue-alt">
+          <div class="tile-header">
+            <strong><%=grp.group.name%></strong>
           </div>
-          <!-- /.box-header -->
-          <div class="box-body no-pad" style="display: block;">
-            <div class="events-nest ">
-              <div class="wrap-no-pad text-white">
-                <span><%=grp.group.name%></span>
-                <p><i class="far fa-calendar-alt"></i> <%= t('groups.member_since')%>: <%=grp.created_at.strftime('%d/%m/%Y')%>
-                  <br><i class="fas fa-map-marker-alt"></i> <%= t('groups.local')%>: <%=grp.group.city%> - <%=grp.group.state%> - <%=grp.group.country%>
-                </p>
-              </div>
+          <div class="tile-content-wrapper">
+            <i class="glyph-icon icon-group"></i>
+            <%= '<span class="bs-label label-danger">ADMIN</span>'.html_safe if grp.admin? %>
+            <div class="tile-content">
+              <span><i class="glyph-icon icon-music"></i></span>
+              <%= rand(20..200)%>
             </div>
+            <small>
+              <i class="glyph-icon icon-map-marker"></i>
+              <%=grp.group.city%> | <%=grp.group.country%>
+            </small>
           </div>
-          <!-- /.box-body -->
+          <a href="<%=group_path(grp.id)%>" class="tile-footer tooltip-button" data-placement="bottom">
+            ver detalhes
+            <i class="glyph-icon icon-arrow-right"></i>
+          </a>
         </div>
-        <!--end of facebook-->
       </div>
-      <% end %>
+    <% end %>
   </div>
 <%end%>

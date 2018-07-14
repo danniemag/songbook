@@ -1,61 +1,112 @@
-<!-- Container Begin -->
-<div class="large-5 small-centered columns">
-  <div class="profile"> <%= image_tag 'yeti.svg'%> <h3>Songbook</h3></div>
-  <div class="box bg-white">
-    <!-- Profile -->
-    <!-- End of Profile -->
-    <!-- /.box-header -->
-    <div class="box-body " style="display: block;">
-      <div class="row">
-        <div class="large-12 columns">
-          <div class="row">
-            <div class="edumix-signup-panel">
-              <p class="welcome">Log in with you email account</p>
-              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="row column log-in-form">
-                  <%= f.label :email %>
-                  <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'somebody@example.com' %>
-                  <%= f.label :password %>
-                  <%= f.password_field :password, autocomplete: 'off', placeholder: 'Senha' %>
-                  <input id="show-password" type="checkbox">
-                  <label for="show-password">Show password</label>
-                  <p><%= f.submit 'Log in', class: 'button expanded' %></p>
-                  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                    <p class="text-center">
-                      <%= link_to 'Forgot your password?', new_password_path(resource_name) %><br/>
-                    </p>
-                  <% end -%>
+<div id="loading">
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
+
+<style type="text/css">
+  html, body {
+    height: 100%;
+    background: #F5F5F5;
+  }
+</style>
+
+<div class="center-vertical">
+  <div class="center-content row">
+    <div class="col-md-6 center-margin">
+
+      <h3 class="text-center pad15B font-gray text-transform-upr font-size-23">Monarch Admin
+        <span class="opacity-80">v1.0</span></h3>
+
+      <div class="content-box border-top border-red clearfix">
+        <div class="content-box-wrapper row">
+
+          <form action="" id="login-validation" class="col-md-7" method="">
+            <div id="login-form">
+              <div class="pad20A">
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address:</label>
+                  <div class="input-group input-group-lg">
+                                        <span class="input-group-addon addon-inside bg-white font-primary">
+                                            <i class="glyph-icon icon-envelope-o"></i>
+                                        </span>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
                 </div>
-              <% end %>
-              <br>
-              <h2><span>OR</span></h2>
-              <p class="welcome text-center">Sign in with</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-5 columns no-pad">
-              <div class="edumix-footer-panel">
-                <a href="<%= user_google_oauth2_omniauth_authorize_path %>">
-                  <span class="bg-red"><i class="fab fa-google"></i>&nbsp;&nbsp;sign in with Google</span>
-                </a>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password:</label>
+                  <div class="input-group input-group-lg">
+                                        <span class="input-group-addon addon-inside bg-white font-primary">
+                                            <i class="glyph-icon icon-unlock-alt"></i>
+                                        </span>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                </div>
+                <div class="row mrg15B">
+                  <div class="checkbox-primary col-md-10" style="height: 20px;">
+                    <label>
+                      <input type="checkbox" id="loginCheckbox1" class="custom-checkbox">
+                      Remember me
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-block btn-blue-alt">Login</button>
+                </div>
               </div>
             </div>
-            <div class="large-2 columns"></div>
-            <div class="large-5 columns no-pad">
-              <div class="edumix-footer-panel">
-                <a href="#">
-                  <span class="bg-dark-blue"><i class="fab fa-facebook-f"></i>&nbsp;&nbsp;sign in with facebook</span>
+
+          </form>
+          <div class="col-md-4 float-right" style="height: 287px;">
+
+            <div class="center-vertical">
+              <div class="center-content">
+
+                <a href="#" class="btn btn-block btn-md bg-facebook">
+                                    <span class="glyph-icon icon-separator">
+                                        <i class="glyph-icon icon-facebook"></i>
+                                    </span>
+                  <span class="button-content">
+                                        Connect with Facebook
+                                    </span>
                 </a>
+                <div class="mrg10A"></div>
+                <a href="#" class="btn btn-block btn-md bg-twitter">
+                                    <span class="glyph-icon icon-separator">
+                                        <i class="glyph-icon icon-twitter"></i>
+                                    </span>
+                  <span class="button-content">
+                                        Connect with Twitter
+                                    </span>
+                </a>
+                <div class="mrg10A"></div>
+                <a href="#" class="btn btn-block btn-md bg-google">
+                                    <span class="glyph-icon icon-separator">
+                                        <i class="glyph-icon icon-google-plus"></i>
+                                    </span>
+                  <span class="button-content">
+                                        Connect with Google+
+                                    </span>
+                </a>
+
               </div>
             </div>
+
           </div>
+
         </div>
       </div>
+
     </div>
-    <!-- end .timeline -->
+
   </div>
-  <!-- box -->
 </div>
+
+
+
 
 
 <%#= render "devise/shared/links" %>
