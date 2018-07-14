@@ -11,16 +11,18 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(permitted_params)
-    if @group.save
-      GroupMemberManager.create_group(@group, current_user)
-      flash[:success] =  t('groups.create.success', group_name: @group.name)
-      redirect_to groups_path
-    else
-      @group.errors.full_messages.each do |message|
-        flash[:alert] = message
+    ActiveRecord::Base.transaction do
+      @group = Group.new(permitted_params)
+      if @group.save
+        GroupMemberManager.create_group(@group, current_user)
+        flash[:success] =  t('groups.create.success', group_name: @group.name)
+        redirect_to groups_path
+      else
+        @group.errors.full_messages.each do |message|
+          flash[:alert] = message
+        end
+        render(:new)
       end
-      render(:new)
     end
   end
 
