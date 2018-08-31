@@ -1,7 +1,24 @@
 Rails.application.routes.draw do
-  get 'dashboard/home'
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :dashboard, only: :home
+
+  resources :groups do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
+  resources :songs
+
+  authenticated :user do
+    root to: 'dashboard#home', as: :authenticated_root
+  end
 
   root to: 'dashboard#home'
+
+  devise_for :users, controllers: {
+      omniauth_callbacks: 'users/omniauth_callbacks',
+      registrations: 'users/registrations',
+      sessions: 'users/sessions'
+  }
 end

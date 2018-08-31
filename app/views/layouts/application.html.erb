@@ -1,103 +1,427 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Songbook</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="<%=I18n.locale%>">
+<head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'https://use.fontawesome.com/releases/v5.0.13/css/all.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'dripicon', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'foundation', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'pace-theme-flash', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'palette', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'slicknav', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'theme', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'themify-icons', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'typicons', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <style>
+    /* Loading Spinner */
+    .spinner{margin:0;width:70px;height:18px;margin:-35px 0 0 -9px;position:absolute;top:50%;left:50%;text-align:center}.spinner > div{width:18px;height:18px;background-color:#333;border-radius:100%;display:inline-block;-webkit-animation:bouncedelay 1.4s infinite ease-in-out;animation:bouncedelay 1.4s infinite ease-in-out;-webkit-animation-fill-mode:both;animation-fill-mode:both}.spinner .bounce1{-webkit-animation-delay:-.32s;animation-delay:-.32s}.spinner .bounce2{-webkit-animation-delay:-.16s;animation-delay:-.16s}@-webkit-keyframes bouncedelay{0%,80%,100%{-webkit-transform:scale(0.0)}40%{-webkit-transform:scale(1.0)}}@keyframes bouncedelay{0%,80%,100%{transform:scale(0.0);-webkit-transform:scale(0.0)}40%{transform:scale(1.0);-webkit-transform:scale(1.0)}}
+  </style>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'pace', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'modernizr', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'waypoints.min', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'preloader-script', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'foundation', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery.slimscroll', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'sliding-menu', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery.counterup.min', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery.circliful', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'loader', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery.flot.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery.flot.resize.min', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery.flot.pie.min', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+  <title>Songbook</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <body class="pace-done" data-whatinput="mouse" style="overflow: visible;">
-    <%= render 'partials/preloader' %>
-    <div class="off-canvas-wrapper over-flow-hidden">
-      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper="">
-        <div class="inner-wrap">
-          <%= render 'partials/sidebar' %>
-          <div class="wrap-fluid" id="paper-bg" style="width: auto; margin-left: 260px;">
-            <%= render 'partials/topnav' %>
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://agileui.com/demo/monarch/assets/images/icons/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://agileui.com/demo/monarch/assets/images/icons/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://agileui.com/demo/monarch/assets/images/icons/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="https://agileui.com/demo/monarch/assets/images/icons/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="https://agileui.com/demo/monarch/assets/images/icons/favicon.png">
+
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/bootstrap/css/bootstrap.css">
+
+
+  <!-- HELPERS -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/animate.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/backgrounds.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/boilerplate.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/border-radius.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/grid.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/page-transitions.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/spacing.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/typography.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/utils.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/colors.css">
+
+  <!-- ELEMENTS -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/badges.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/buttons.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/content-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/dashboard-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/forms.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/images.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/info-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/invoice.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/loading-indicators.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/menus.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/panel-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/response-messages.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/responsive-tables.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/ribbon.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/social-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/tables.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/tile-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/elements/timeline.css">
+
+
+
+  <!-- ICONS -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/icons/fontawesome/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/icons/linecons/linecons.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/icons/spinnericon/spinnericon.css">
+
+
+  <!-- WIDGETS -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/accordion-ui/accordion.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/calendar/calendar.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/carousel/carousel.css">
+
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/charts/justgage/justgage.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/charts/morris/morris.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/charts/piegage/piegage.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/charts/xcharts/xcharts.css">
+
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/chosen/chosen.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/colorpicker/colorpicker.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/datatable/datatable.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/datepicker/datepicker.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/datepicker-ui/datepicker.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/dialog/dialog.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/dropdown/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/dropzone/dropzone.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/file-input/fileinput.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/input-switch/inputswitch.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/input-switch/inputswitch-alt.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/ionrangeslider/ionrangeslider.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/jcrop/jcrop.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/jgrowl-notifications/jgrowl.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/loading-bar/loadingbar.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/maps/vector-maps/vectormaps.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/markdown/markdown.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/modal/modal.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/multi-select/multiselect.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/multi-upload/fileupload.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/nestable/nestable.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/noty-notifications/noty.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/popover/popover.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/pretty-photo/prettyphoto.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/progressbar/progressbar.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/range-slider/rangeslider.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/slidebars/slidebars.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/slider-ui/slider.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/summernote-wysiwyg/summernote-wysiwyg.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/tabs-ui/tabs.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/theme-switcher/themeswitcher.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/timepicker/timepicker.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/tocify/tocify.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/tooltip/tooltip.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/touchspin/touchspin.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/uniform/uniform.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/wizard/wizard.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/widgets/xeditable/xeditable.css">
+
+  <!-- SNIPPETS -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/snippets/chat.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/snippets/files-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/snippets/login-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/snippets/notification-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/snippets/progress-box.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/snippets/todo.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/snippets/user-profile.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/snippets/mobile-navigation.css">
+
+  <!-- APPLICATIONS -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/applications/mailbox.css">
+
+  <!-- Admin theme -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/themes/admin/layout.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/themes/admin/color-schemes/default.css">
+
+  <!-- Components theme -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/themes/components/default.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/themes/components/border-radius.css">
+
+  <!-- Admin responsive -->
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/responsive-elements.css">
+  <link rel="stylesheet" type="text/css" href="https://agileui.com/demo/monarch/assets/helpers/admin-responsive.css">
+
+  <!-- JS Core -->
+  <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-core/jquery-core.js"></script>
+  <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-core/jquery-ui-core.js"></script>
+  <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-core/jquery-ui-widget.js"></script>
+  <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-core/jquery-ui-mouse.js"></script>
+  <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-core/jquery-ui-position.js"></script>
+  <!--<script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-core/transition.js"></script>-->
+  <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-core/modernizr.js"></script>
+  <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-core/jquery-cookie.js"></script>
+
+
+  <script type="text/javascript">
+      $(window).load(function(){
+          setTimeout(function() {
+              $('#loading').fadeOut( 400, "linear" );
+          }, 300);
+      });
+  </script>
+</head>
+
+
+<body>
+  <div id="sb-site">
+    <div class="sb-slidebar bg-black sb-right sb-style-overlay">
+      <div class="scrollable-content scrollable-slim-sidebar">
+        <div class="pad15A">
+          <a href="#" title="" data-toggle="collapse" data-target="#sidebar-toggle-1" class="popover-title">
+            Cloud status
+            <span class="caret"></span>
+          </a>
+          <div id="sidebar-toggle-1" class="collapse in">
+            <div class="pad15A container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="text-center font-gray pad5B text-transform-upr font-size-12">New visits</div>
+                  <div class="chart-alt-3 font-gray-dark" data-percent="55"><span>55</span>%</div>
+                </div>
+                <div class="col-md-4">
+                  <div class="text-center font-gray pad5B text-transform-upr font-size-12">Bounce rate</div>
+                  <div class="chart-alt-3 font-gray-dark" data-percent="46"><span>46</span>%</div>
+                </div>
+                <div class="col-md-4">
+                  <div class="text-center font-gray pad5B text-transform-upr font-size-12">Server load</div>
+                  <div class="chart-alt-3 font-gray-dark" data-percent="92"><span>92</span>%</div>
+                </div>
+              </div>
+              <div class="divider mrg15T mrg15B"></div>
+              <div class="text-center">
+                <a href="#" class="btn center-div btn-info mrg5T btn-sm text-transform-upr updateEasyPieChart">
+                  <i class="glyph-icon icon-refresh"></i>
+                  Update charts
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+
+          <a href="#" title="" data-toggle="collapse" data-target="#sidebar-toggle-6" class="popover-title">
+            Latest transfers
+            <span class="caret"></span>
+          </a>
+          <div id="sidebar-toggle-6" class="collapse in">
+
+            <ul class="files-box">
+              <li>
+                <i class="files-icon glyph-icon font-red icon-file-archive-o"></i>
+                <div class="files-content">
+                  <b>blog_export.zip</b>
+                  <div class="files-date">
+                    <i class="glyph-icon icon-clock-o"></i>
+                    added on <b>22.10.2014</b>
+                  </div>
+                </div>
+                <div class="files-buttons">
+                  <a href="#" class="btn btn-xs hover-info tooltip-button" data-placement="left" title="Download">
+                    <i class="glyph-icon icon-cloud-download"></i>
+                  </a>
+                  <a href="#" class="btn btn-xs hover-danger tooltip-button" data-placement="left" title="Delete">
+                    <i class="glyph-icon icon-times"></i>
+                  </a>
+                </div>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <i class="files-icon glyph-icon icon-file-code-o"></i>
+                <div class="files-content">
+                  <b>homepage-test.html</b>
+                  <div class="files-date">
+                    <i class="glyph-icon icon-clock-o"></i>
+                    added  <b>19.10.2014</b>
+                  </div>
+                </div>
+                <div class="files-buttons">
+                  <a href="#" class="btn btn-xs hover-info tooltip-button" data-placement="left" title="Download">
+                    <i class="glyph-icon icon-cloud-download"></i>
+                  </a>
+                  <a href="#" class="btn btn-xs hover-danger tooltip-button" data-placement="left" title="Delete">
+                    <i class="glyph-icon icon-times"></i>
+                  </a>
+                </div>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <i class="files-icon glyph-icon font-yellow icon-file-image-o"></i>
+                <div class="files-content">
+                  <b>monthlyReport.jpg</b>
+                  <div class="files-date">
+                    <i class="glyph-icon icon-clock-o"></i>
+                    added on <b>10.9.2014</b>
+                  </div>
+                </div>
+                <div class="files-buttons">
+                  <a href="#" class="btn btn-xs hover-info tooltip-button" data-placement="left" title="Download">
+                    <i class="glyph-icon icon-cloud-download"></i>
+                  </a>
+                  <a href="#" class="btn btn-xs hover-danger tooltip-button" data-placement="left" title="Delete">
+                    <i class="glyph-icon icon-times"></i>
+                  </a>
+                </div>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <i class="files-icon glyph-icon font-green icon-file-word-o"></i>
+                <div class="files-content">
+                  <b>new_presentation.doc</b>
+                  <div class="files-date">
+                    <i class="glyph-icon icon-clock-o"></i>
+                    added on <b>5.9.2014</b>
+                  </div>
+                </div>
+                <div class="files-buttons">
+                  <a href="#" class="btn btn-xs hover-info tooltip-button" data-placement="left" title="Download">
+                    <i class="glyph-icon icon-cloud-download"></i>
+                  </a>
+                  <a href="#" class="btn btn-xs hover-danger tooltip-button" data-placement="left" title="Delete">
+                    <i class="glyph-icon icon-times"></i>
+                  </a>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="clear"></div>
+
+          <a href="#" title="" data-toggle="collapse" data-target="#sidebar-toggle-3" class="popover-title">
+            Tasks for today
+            <span class="caret"></span>
+          </a>
+          <div id="sidebar-toggle-3" class="collapse in">
+
+            <ul class="progress-box">
+              <li>
+                <div class="progress-title">
+                  New features development
+                  <b>87%</b>
+                </div>
+                <div class="progressbar-smaller progressbar" data-value="87">
+                  <div class="progressbar-value bg-azure">
+                    <div class="progressbar-overlay"></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <b class="pull-right">66%</b>
+                <div class="progress-title">
+                  Finishing uploading files
+
+                </div>
+                <div class="progressbar-smaller progressbar" data-value="66">
+                  <div class="progressbar-value bg-red">
+                    <div class="progressbar-overlay"></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="progress-title">
+                  Creating tutorials
+                  <b>58%</b>
+                </div>
+                <div class="progressbar-smaller progressbar" data-value="58">
+                  <div class="progressbar-value bg-blue-alt"></div>
+                </div>
+              </li>
+              <li>
+                <div class="progress-title">
+                  Frontend bonus theme
+                  <b>74%</b>
+                </div>
+                <div class="progressbar-smaller progressbar" data-value="74">
+                  <div class="progressbar-value bg-purple"></div>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="clear"></div>
+
+          <a href="#" title="" data-toggle="collapse" data-target="#sidebar-toggle-4" class="popover-title">
+            Pending notifications
+            <span class="bs-label bg-orange tooltip-button" title="Label example">New</span>
+            <span class="caret"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="loading">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+
+    <div id="page-wrapper">
+      <%= render 'partials/topnav'%>
+      <%= render 'partials/sidebar'%>
+      <div id="page-content-wrapper">
+        <div id="page-content">
+          <div class="container">
             <%= yield %>
-            <%= render 'partials/footer' %>
           </div>
         </div>
-        <!-- end paper bg -->
       </div>
     </div>
 
 
-<!--    <p class="notice"><%#= notice %></p>-->
-<!--    <p class="alert"><%#= alert %></p>-->
+    <!-- WIDGETS -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/bootstrap/js/bootstrap.js"></script>
 
+    <!-- Bootstrap Dropdown -->
+    <!-- <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/dropdown/dropdown.js"></script> -->
 
-    <!-- main javascript library -->
-    <script type="text/javascript" src="./FondamixHome_files/jquery.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/waypoints.min.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/preloader-script.js"></script>
-    <!-- foundation javascript -->
-    <script src="./FondamixHome_files/what-input.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/foundation.js"></script>
-    <!-- main edumix javascript -->
-    <script type="text/javascript" src="./FondamixHome_files/jquery.slimscroll.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/jquery.slicknav.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/sliding-menu.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/scriptbreaker-multiple-accordion-1.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/jquery.counterup.min.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/jquery.circliful.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/app.js"></script>
-    <!-- additional javascript -->
-    <script type="text/javascript" src="./FondamixHome_files/jquery.velocity.min.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/number-pb.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/loader.js"></script>
-    <script type="text/javascript" src="./FondamixHome_files/demo.js"></script>
-    <!-- FLOT CHARTS -->
-    <script src="./FondamixHome_files/jquery.flot.js" type="text/javascript"></script>
-    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-    <script src="./FondamixHome_files/jquery.flot.resize.min.js" type="text/javascript"></script>
-    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-    <script src="./FondamixHome_files/jquery.flot.pie.min.js" type="text/javascript"></script>
-    <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-    <script src="./FondamixHome_files/jquery.flot.categories.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./FondamixHome_files/skycons.js"></script>
-    <script src="./FondamixHome_files/js"></script>
+    <!-- Bootstrap Tooltip -->
+    <!-- <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/tooltip/tooltip.js"></script> -->
 
-    <script>
-        $(document).foundation();
-    </script>
+    <!-- Bootstrap Popover -->
+    <!-- <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/popover/popover.js"></script> -->
 
-    <div class="tooltip-inner" id="line-chart-tooltip"
-         style="position: absolute; background: rgb(51, 51, 51); padding: 3px 10px;
-             color: rgb(255, 255, 255); display: none; opacity: 1;">
-    </div>
+    <!-- Bootstrap Progress Bar -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/progressbar/progressbar.js"></script>
 
-  </body>
+    <!-- Bootstrap Buttons -->
+    <!-- <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/button/button.js"></script> -->
+
+    <!-- Bootstrap Collapse -->
+    <!-- <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/collapse/collapse.js"></script> -->
+
+    <!-- Superclick -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/superclick/superclick.js"></script>
+
+    <!-- Input switch alternate -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/input-switch/inputswitch-alt.js"></script>
+
+    <!-- Slim scroll -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/slimscroll/slimscroll.js"></script>
+
+    <!-- Slidebars -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/slidebars/slidebars.js"></script>
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/slidebars/slidebars-demo.js"></script>
+
+    <!-- PieGage -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/charts/piegage/piegage.js"></script>
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/charts/piegage/piegage-demo.js"></script>
+
+    <!-- Screenfull -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/screenfull/screenfull.js"></script>
+
+    <!-- Content box -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/content-box/contentbox.js"></script>
+
+    <!-- Overlay -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/overlay/overlay.js"></script>
+
+    <!-- Widgets init for demo -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/js-init/widgets-init.js"></script>
+
+    <!-- Theme layout -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/themes/admin/layout.js"></script>
+
+    <!-- Theme switcher -->
+    <script type="text/javascript" src="https://agileui.com/demo/monarch/assets/widgets/theme-switcher/themeswitcher.js"></script>
+  </div>
+</body>
 </html>

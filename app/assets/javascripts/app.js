@@ -15,7 +15,7 @@ $(function () {
 $(function () {
     "use strict";
     $('.slicknav').slicknav({
-        label: "Fondamix"
+        label: "Songbook"
     });
     /*
      * INITIALIZE BUTTON TOGGLE

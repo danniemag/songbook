@@ -36,8 +36,18 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+
+# ------------------------------- Gems specified for THIS project
+# City-State-Country provider
+gem 'city-state'
+
 # Devise is a flexible authentication solution for Rails
 gem 'devise'
+
+# Use Omniauth for Google Authentication
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'multipart-post'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
