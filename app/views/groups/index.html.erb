@@ -76,11 +76,11 @@
                 <span class="button-content">Panels</span>
               </a>
 
-              <a href="#" class="btn vertical-button hover-blue" title="">
+              <a href="<%= destroy_multiple_groups_path %>" class="btn vertical-button hover-blue" title="">
                                 <span class="glyph-icon icon-separator-vertical">
                                     <i class="glyph-icon icon-picture-o"></i>
                                 </span>
-                <span class="button-content">Themes</span>
+                <span class="button-content">Destruir Grupos</span>
               </a>
             </div>
           </div>
@@ -95,12 +95,13 @@
     <% @groups.each do |grp|%>
       <div class="col-md-3">
         <div class="tile-box tile-box-alt mrg20B bg-blue-alt">
+          <%= link_to 'Delete', group_path(grp.id), method: :delete, data: {confirm: 'Are you sure?'} %>
           <div class="tile-header">
             <strong><%=grp.group.name%></strong>
+            <%= '<span class="bs-label label-danger">ADMIN</span>'.html_safe if grp.admin? %>
           </div>
           <div class="tile-content-wrapper">
             <i class="glyph-icon icon-group"></i>
-            <%= '<span class="bs-label label-danger">ADMIN</span>'.html_safe if grp.admin? %>
             <div class="tile-content">
               <span><i class="glyph-icon icon-music"></i></span>
               <%= rand(20..200)%>

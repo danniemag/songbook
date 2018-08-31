@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   resources :dashboard, only: :home
-  resources :groups
+
+  resources :groups do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
   resources :songs
 
   authenticated :user do

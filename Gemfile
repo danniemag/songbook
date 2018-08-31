@@ -36,6 +36,11 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+
+# ------------------------------- Gems specified for THIS project
+# City-State-Country provider
+gem 'city-state'
+
 # Devise is a flexible authentication solution for Rails
 gem 'devise'
 

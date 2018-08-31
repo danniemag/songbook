@@ -3,10 +3,7 @@
     <ul id="sidebar-menu">
       <li class="header"><span>Overview</span></li>
       <li>
-        <a href="index.html" title="Admin Dashboard">
-          <i class="glyph-icon icon-linecons-tv"></i>
-          <span>Admin dashboard</span>
-        </a>
+        <%= link_to "<i class=\"glyph-icon icon-linecons-tv\"></i><span>Admin Dashboard</span>".html_safe, authenticated_root_path %>
       </li>
       <li class="divider"></li>
       <li class="no-menu">
