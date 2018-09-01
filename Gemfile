@@ -41,6 +41,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # City-State-Country provider
 gem 'city-state'
 
+# Use CKEditor to simplify web content creation
+gem 'ckeditor'
+
 # Devise is a flexible authentication solution for Rails
 gem 'devise'
 

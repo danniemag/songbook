@@ -1,0 +1,73 @@
+<%= javascript_include_tag Ckeditor.cdn_url %>
+
+<%= form_for @song, :html => {:class => 'form-horizontal bordered-row'} do |f| %>
+  <div class="panel">
+    <div class="panel-body">
+      <h3 class="title-hero">Elements</h3>
+
+      <div class="example-box-wrapper">
+        <form class="form-horizontal bordered-row" id="demo-form" data-parsley-validate="">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Nome</label>
+                <div class="col-sm-6">
+                  <%= f.text_field :name, as: :string, class: 'form-control', required: true %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Cantor/Banda</label>
+                <div class="col-sm-6">
+                  <%= f.text_field :singer, as: :string, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Key</label>
+                <div class="col-sm-6">
+                  <%= f.select(:key, ['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'], {}, { :class => 'form-control' }) %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Source</label>
+                <div class="col-sm-6">
+                  <%= f.select(:source, ['Cânticos Espirituais', 'Cantor Cristão', 'HCC', 'Harpa Cristã'], {}, { :class => 'form-control' }) %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Video URL</label>
+                <div class="col-sm-6">
+                  <%= f.text_field :video_url, as: :string, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Cifra/Partitura</label>
+                <div class="col-sm-6">
+                  <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <span class="btn btn-primary btn-file">
+                                <span class="fileinput-new">Select file</span>
+                                <span class="fileinput-exists">Change</span>
+                                <input type="file" name="...">
+                            </span>
+                    <span class="fileinput-filename"></span>
+                    <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h3 class="title-hero">LETRA DA MÚSICA</h3>
+              <%#= f.cktext_area :lyrics, class: 'someclass', ckeditor: { language: 'uk'} %>
+              <%= f.cktext_area :lyrics, id: 'lyricstext' %>
+              <%#= cktext_area :page, :info, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
+            </div>
+          </div>
+          <div class="bg-default content-box text-center pad20A mrg25T">
+            <%= f.submit 'Salvar música', class:'btn btn-primary'%>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+<% end %>
