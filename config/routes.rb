@@ -21,4 +21,6 @@ Rails.application.routes.draw do
       registrations: 'users/registrations',
       sessions: 'users/sessions'
   }
+
+  mount Ckeditor::Engine => '/ckeditor'
 end

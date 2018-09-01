@@ -2,6 +2,10 @@ pt-BR:
   activerecord:
     errors:
       models:
+        song:
+          attributes:
+            name:
+              blank: 'cannot be blank.'
         group:
           attributes:
             name:
@@ -19,3 +23,6 @@ pt-BR:
     member_since: 'Member since'
     no_groups_title: 'No groups!'
     no_groups_body: 'You have no groups to display. Request a sign in now!'
+  songs:
+    create:
+      success: '"%{song_name}" successfully added.'
