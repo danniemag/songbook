@@ -22,5 +22,7 @@ module Songbook
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.available_locales = [:'pt-BR', 'en-US', 'es']
     config.i18n.default_locale = :'pt-BR'
+
+    config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
   end
 end

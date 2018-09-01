@@ -1,0 +1,16 @@
+<h1>Song::Show</h1>
+
+<p>id: <strong><%= @song.id%></strong></p>
+<p>name: <strong><%= @song.name%></strong></p>
+<p>cantor: <strong><%= @song.singer%></strong></p>
+<p>tom: <strong><%= @song.key%></strong></p>
+<p>fonte: <strong><%= @song.source%></strong></p>
+<p>video_url: <strong><%= @song.video_url%></strong></p>
+<br>
+<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/<%=@song.video_url.split('v=')[1]%>"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+<br>
+<br>
+<p>lyrics: <br><%=@song.lyrics.html_safe%></p>

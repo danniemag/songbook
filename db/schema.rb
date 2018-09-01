@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_163046) do
+ActiveRecord::Schema.define(version: 2018_09_01_144925) do
 
   create_table "group_members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "group_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_06_11_163046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin"
+    t.boolean "can_edit"
   end
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -32,7 +33,7 @@ ActiveRecord::Schema.define(version: 2018_06_11_163046) do
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "group_id"
     t.integer "song_id"
-    t.date "execution_date", default: "0001-01-01", null: false
+    t.date "execution_date", default: "2018-06-15", null: false
     t.boolean "played"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(version: 2018_06_11_163046) do
     t.string "sheet"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_songs_on_group_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -88,4 +91,5 @@ ActiveRecord::Schema.define(version: 2018_06_11_163046) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "songs", "groups"
 end

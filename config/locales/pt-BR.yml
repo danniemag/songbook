@@ -2,6 +2,10 @@ pt-BR:
   activerecord:
     errors:
       models:
+        song:
+          attributes:
+            name:
+              blank: 'cannot be blank.'
         group:
           attributes:
             name:
@@ -23,3 +27,6 @@ pt-BR:
     member_since: 'Membro desde '
     no_groups_title: 'Não há grupos'
     no_groups_body: 'Você não está inscrito em quaisquer grupos no momento. Solicite uma inscrição agora!'
+  songs:
+    create:
+      success: '"%{song_name}" criado com sucesso.'
