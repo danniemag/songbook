@@ -64,7 +64,7 @@
             </li>
           </ul>
           <div class="pad5A button-pane button-pane-alt text-center">
-            <a href="#" class="btn display-block font-normal btn-danger">
+            <a href="/users/sign_out" class="btn display-block font-normal btn-danger">
               <i class="glyph-icon icon-power-off"></i>
               Logout
             </a>
@@ -181,11 +181,9 @@
         </div>
       </div>
     </div>
-    <%= link_to "<a class=\"header-btn\" id=\"logout-btn\" title=\"Lockscreen page example\"><i class=\"glyph-icon icon-linecons-lock\"></i></a>".html_safe, destroy_user_session_path %>
-<!--    <a class="header-btn" id="logout-btn" title="Lockscreen page example">-->
-<!--      <i class="glyph-icon icon-linecons-lock"></i>-->
-<!--    </a>-->
-
+        <a href="/users/sign_out" class="header-btn" id="logout-btn" title="Logout">
+          <i class="glyph-icon icon-power-off"></i>
+        </a>
   </div><!-- #header-nav-right -->
 
 </div>

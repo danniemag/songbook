@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -11,9 +12,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
+//= require activestorage
 //= require ckeditor/init
 //= require_tree .
-
-//= require jquery

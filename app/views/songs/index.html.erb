@@ -1,1 +1,5 @@
 <h2>Songs Index</h2>
+
+<% @songs.each do |song| %>
+  <p><%=song.id%>: <strong><%=song.name%></strong> - belongs_to: <%=song.group.name%></p>
+<%end%>
