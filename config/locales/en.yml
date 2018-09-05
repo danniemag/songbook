@@ -22,7 +22,8 @@ pt-BR:
     local: 'Location'
     member_since: 'Member since'
     no_groups_title: 'No groups!'
-    no_groups_body: 'You have no groups to display. Request a sign in now!'
+    no_groups_body: 'You have no groups to display. Request a subscription!'
+    no_groups_body_2: 'Or create your own group.'
   songs:
     create:
       success: '"%{song_name}" successfully added.'

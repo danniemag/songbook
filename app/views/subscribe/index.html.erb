@@ -1,0 +1,39 @@
+<% if @subscriptions.blank? %>
+  <div class="panel">
+    <div class="panel-body">
+      <h3 class="title-hero">
+        Subscriptions
+      </h3>
+      <div class="example-box-wrapper">
+        <div class="alert alert-success">
+          <div class="bg-green alert-icon">
+            <i class="glyph-icon icon-check"></i>
+          </div>
+          <div class="alert-content">
+            <h4 class="alert-title">Yay!!</h4>
+            <p>No pending subscriptions to accept.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="panel">
+    <div class="panel-body">
+      <h3 class="title-hero">
+        Subscriptions
+      </h3>
+      <div class="example-box-wrapper">
+        <div class="alert alert-warning">
+          <div class="bg-orange alert-icon">
+            <i class="glyph-icon icon-warning"></i>
+          </div>
+          <div class="alert-content">
+            <h4 class="alert-title">Oooops...</h4>
+            <p>Check below your pending subscriptions. <a href="#" title="Link">Link</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

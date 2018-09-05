@@ -7,36 +7,13 @@
       </li>
       <li class="divider"></li>
       <li class="no-menu">
-        <a href="../frontend-template/index.html" title="Frontend template">
-          <i class="glyph-icon icon-linecons-beaker"></i>
-          <span>Frontend template</span>
-          <span class="bs-label label-danger">
-                  NEW
-              </span>
-        </a>
-      </li>
-      <li class="header"><span>Administração</span></li>
-      <li>
-        <%= link_to "<i class=\"glyph-icon icon-linecons-diamond\"></i><span>Meus grupos</span>".html_safe, groups_path %>
-       </li>
-<!--        <a href="#" title="Elements">-->
-<!--          <i class="glyph-icon icon-linecons-diamond"></i>-->
-<!--          <span>Elements</span>-->
-<!--        </a>-->
-        <div class="sidebar-submenu">
-
-          <ul>
-            <li><a href="buttons.html" title="Buttons"><span>Buttons</span></a></li>
-            <li><a href="labels-badges.html" title="Labels &amp; Badges"><span>Labels &amp; Badges</span></a></li>
-            <li><a href="content-boxes.html" title="Content boxes"><span>Content boxes</span></a></li>
-            <li><a href="icons.html" title="Icons"><span>Icons</span></a></li>
-            <li><a href="nav-menus.html" title="Navigation menus"><span>Navigation menus</span></a></li>
-            <li><a href="response-messages.html" title="Response messages"><span>Response messages</span></a></li>
-            <li><a href="images.html" title="Images"><span>Images</span></a></li>
-          </ul>
-
-        </div><!-- .sidebar-submenu -->
-      </li>
+        <%= link_to "<i class=\"glyph-icon icon-linecons-beaker\"></i><span>Meus grupos</span><span class=\"bs-label label-danger\">NEW</span>".html_safe, groups_path %>
+        </li>
+      <li class="divider"></li>
+      <li class="no-menu">
+        <%= link_to "<i class=\"glyph-icon icon-linecons-wallet\"></i><span>Subscriptions</span>".html_safe, subscribe_index_path %>
+        </li>
+      <li class="divider"></li>
       <li>
         <a href="#" title="Dashboard boxes">
           <i class="glyph-icon icon-linecons-lightbulb"></i>

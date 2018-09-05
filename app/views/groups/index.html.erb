@@ -1,29 +1,18 @@
 <% if @groups.blank? %>
-  <div class="content-box mrg20T">
-    <h3 class="content-box-header bg-primary">
-      Toggle button closed
-      <span class="header-buttons-separator">
-          <a href="#" class="icon-separator toggle-button">
-              <i class="glyph-icon icon-chevron-down"></i>
-          </a>
-      </span>
-    </h3>
-    <div class="content-box-wrapper hide">
-      This content boxes has the header with <code>.bg-default</code>.
+  <div class="panel">
+    <div class="panel-body">
+      <div class="example-box-wrapper">
+        <div class="alert alert-danger">
+          <div class="bg-red alert-icon">
+            <i class="glyph-icon icon-times"></i>
+          </div>
+          <div class="alert-content">
+            <h4 class="alert-title"><%= t('groups.no_groups_title')%></h4>
+            <p><%= t('groups.no_groups_body')%> <a href="/groups/new"><%= t('groups.no_groups_body_2')%></a></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="large-12 columns">
-    <div class="alert callout">
-      <h6><%= t('groups.no_groups_title')%></h6>
-      <p><%= t('groups.no_groups_body')%></p>
-    </div>
-  </div>
-  <div class="large-6 columns">
-    <a class="button expanded" href="#">Solicitar inscrição</a>
-  </div>
-  <div class="large-6 columns">
-    <a class="button expanded" href="<%=new_group_path%>">Criar grupo</a>
   </div>
 
 

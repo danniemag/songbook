@@ -25,8 +25,9 @@ pt-BR:
       success: '"%{group_name}" criado com sucesso.'
     local: 'Local'
     member_since: 'Membro desde '
-    no_groups_title: 'Não há grupos'
-    no_groups_body: 'Você não está inscrito em quaisquer grupos no momento. Solicite uma inscrição agora!'
+    no_groups_title: 'Você não está inscrito em quaisquer grupos no momento.'
+    no_groups_body: 'Solicite uma inscrição ou'
+    no_groups_body_2: 'crie seu próprio grupo.'
   songs:
     create:
       success: '"%{song_name}" criado com sucesso.'

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :subscribe
   resources :songs
 
   authenticated :user do
